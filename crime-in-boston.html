@@ -34,22 +34,22 @@
     <meta name="msapplication-TileColor" content="#333">
 
 <meta name="author" content="Matt Jones" />
-<meta name="description" content="My First Post¶" />
+<meta name="description" content="" />
 <meta name="keywords" content="">
 
 <meta property="og:site_name" content="MJData"/>
-<meta property="og:title" content="My First Post"/>
-<meta property="og:description" content="My First Post¶"/>
+<meta property="og:title" content="Crime In Boston"/>
+<meta property="og:description" content=""/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="./my-first-post.html"/>
+<meta property="og:url" content="./crime-in-boston.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2018-05-11 00:00:00-04:00"/>
+<meta property="article:published_time" content="2019-08-16 00:00:00-04:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="./author/matt-jones.html">
-<meta property="article:section" content="pyhton"/>
+<meta property="article:section" content="Analysis"/>
 <meta property="og:image" content="/theme/img/profile.jpeg">
 
-  <title>MJData &ndash; My First Post</title>
+  <title>MJData &ndash; Crime In Boston</title>
 
 </head>
 <body>
@@ -89,9 +89,9 @@
 <article class="single">
   <header>
       
-    <h1 id="my-first-post">My First Post</h1>
+    <h1 id="crime-in-boston">Crime In Boston</h1>
     <p>
-          Posted on Fri 11 May 2018 in <a href="./category/pyhton.html">pyhton</a>
+          Posted on Fri 16 August 2019 in <a href="./category/analysis.html">Analysis</a>
 
 
     </p>
@@ -1071,61 +1071,9 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style><body>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="My-First-Post">My First Post<a class="anchor-link" href="#My-First-Post">&#182;</a></h1>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Savannah&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;I Love </span><span class="si">{x}</span><span class="s2">!&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>I Love Savannah!
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1138,10 +1086,10 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/crimes-in-boston/crime.csv&quot;</span><span class="p">,</span><span class="n">encoding</span> <span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;crime.csv&#39;</span>
 </pre></div>
 
 </div>
@@ -1151,7 +1099,20 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1167,7 +1128,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[39]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -1313,43 +1274,6 @@ h6:hover .anchor-link {
   </tbody>
 </table>
 </div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[43]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Index([&#39;INCIDENT_NUMBER&#39;, &#39;OFFENSE_CODE&#39;, &#39;OFFENSE_CODE_GROUP&#39;,
-       &#39;OFFENSE_DESCRIPTION&#39;, &#39;DISTRICT&#39;, &#39;REPORTING_AREA&#39;, &#39;SHOOTING&#39;,
-       &#39;OCCURRED_ON_DATE&#39;, &#39;YEAR&#39;, &#39;MONTH&#39;, &#39;DAY_OF_WEEK&#39;, &#39;HOUR&#39;, &#39;UCR_PART&#39;,
-       &#39;STREET&#39;, &#39;Lat&#39;, &#39;Long&#39;, &#39;Location&#39;],
-      dtype=&#39;object&#39;)</pre>
 </div>
 
 </div>
