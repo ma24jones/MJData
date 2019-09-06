@@ -30,17 +30,23 @@
     <!-- Microsoft EDGE -->
     <meta name="msapplication-TileColor" content="#333333">
 
-    <meta name="author" content="Matt Jones" />
-    <meta name="description" content="Exploring Data With Python" />
-<meta property="og:site_name" content="MJData"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="MJData"/>
-<meta property="og:description" content="Exploring Data With Python"/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="."/>
+<meta name="author" content="Matt Jones" />
+<meta name="description" content="Here is a quick Python guide to check if a folder exists and if not, create the folder." />
+<meta name="keywords" content="">
 
-  <title>MJData &ndash;     Categories
-</title>
+<meta property="og:site_name" content="MJData"/>
+<meta property="og:title" content="Python: Add Folder If It Does Not Exist"/>
+<meta property="og:description" content="Here is a quick Python guide to check if a folder exists and if not, create the folder."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./python-add-folder-if-it-does-not-exist.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-09-06 00:00:00-04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/matt-jones.html">
+<meta property="article:section" content="Python"/>
+<meta property="og:image" content="./">
+
+  <title>MJData &ndash; Python: Add Folder If It Does Not Exist</title>
 
 </head>
 <body>
@@ -74,15 +80,55 @@
 
 <article class="single">
   <header>
-    <h1>    Categories
-</h1>
+      
+    <h1 id="python-add-folder-if-it-does-not-exist">Python: Add Folder If It Does Not Exist</h1>
+    <p>
+          Posted on Fri 06 September 2019 in <a href="./category/python.html">Python</a>
+
+
+    </p>
   </header>
+
+  
+
   <div>
-    <ul class="list">
-      <li><a href="./category/analysis.html">Analysis</a> (1)</li>
-      <li><a href="./category/python.html">Python</a> (2)</li>
-    </ul>
+    <h1>Scenario</h1>
+<p>Maintaining an organized folder structure is important when you are respoible for a growing inventory of data, files, and reports.</p>
+<p>Here is how I utilize python to automate the folder directory setup on a monthly basis.</p>
+<h2>Imports</h2>
+<p>I'm using the built-in datetime and os.path python packages to set my folder path based on the Year/month.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+</pre></div>
+
+
+<h2>Code</h2>
+<p>To start, I needed to create some variables to extract the year and prior month based on today's date.</p>
+<p>So for example, if todays date is September 2, 2019...the below code will set year to 2019 and lastMonth to 08.</p>
+<p>After assigning these variables, I'm able to use them to create the filePath variable which will be used to test if the folder path exists or not.</p>
+<p>Within an if statement I used 'not os.path.exists()' and passed in the 'filePath' argument (previously created).  If this folder path does not exist then it causes the if statement to be True and executes the 'os.makedirs(filePath)' line of code.</p>
+<div class="highlight"><pre><span></span>today = datetime.date.today()
+first = today.replace(day=1)
+lastMonth = first - datetime.timedelta(days=1)
+year = lastMonth.strftime(&quot;%Y&quot;)
+lastMonth = lastMonth.strftime(&quot;%m&quot;)
+
+filePath = f&quot;Your\\File\\Path\\{year}\\{lastMonth}
+
+if not os.path.exists(filePath):
+    os.makedirs(filePath)
+    print(f&quot;{year}-{lastMonth} file path created&quot;)
+</pre></div>
   </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
 </article>
 
     <footer>
