@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-87206506-3', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#333333">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#333333">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Microsoft EDGE -->
+    <meta name="msapplication-TileColor" content="#333333">
+
+<meta name="author" content="Matt Jones" />
+<meta name="description" content="Here is how I use Python to loop through all Excel (.xlsx) files in a folder." />
+<meta name="keywords" content="">
+
+<meta property="og:site_name" content="MJData"/>
+<meta property="og:title" content="Python: Loop Through Files In Folder"/>
+<meta property="og:description" content="Here is how I use Python to loop through all Excel (.xlsx) files in a folder."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./python-loop-through-files-in-folder.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-09-06 00:00:00-04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/matt-jones.html">
+<meta property="article:section" content="Python"/>
+<meta property="og:image" content="./">
+
+  <title>MJData &ndash; Python: Loop Through Files In Folder</title>
+
+<!-- Google Tag Manager -->
+<script>
+  (function(w,d,s,l,i){
+    w[l]=w[l]||[];
+    w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T6SQGGH');
+</script>
+<!-- End Google Tag Manager --></head>
+<body>
+<!-- Google Tag Manager -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6SQGGH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager -->  <aside>
+    <div>
+      <a href=".">
+        <img src="./theme/img/profile.jpeg" alt="Matt Jones" title="Matt Jones">
+      </a>
+      <h1><a href=".">Matt Jones</a></h1>
+
+<p>Data Analyst</p>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/ma24jones" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/matthew-jones-51683814/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href=".">    Home
+</a>
+
+      <a href="./about.html">ABOUT</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="python-loop-through-files-in-folder">Python: Loop Through Files In Folder</h1>
+    <p>
+          Posted on Fri 06 September 2019 in <a href="./category/python.html">Python</a>
+
+
+    </p>
+  </header>
+
+  
+
+  <div>
+    <h1>Scenario</h1>
+<h2>Package Install</h2>
+<div class="highlight"><pre><span></span>pip install glob3
+</pre></div>
+
+
+<h2>Imports</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+</pre></div>
+
+
+<h2>Folder and Files</h2>
+<div class="highlight"><pre><span></span>folderPath = &quot;Your\\Folder\\Path\\&quot;
+os.chdir(folderPath)
+xl_files = glob.glob(&#39;*.xlsx&#39;)  # glob creates a list of files with .filetype
+</pre></div>
+
+
+<h2>Loop Through Files</h2>
+<div class="highlight"><pre><span></span>for file in xl_files:
+    filePath = folderPath + file
+    if os.path.exists(filePath):
+        &lt;Your Code Here&gt;
+</pre></div>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>
+  &copy;  2016 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " MJData ",
+  "url" : ".",
+  "image": "",
+  "description": "Exploring Data With Python"
+}
+</script>
+
+</body>
+</html>
