@@ -5,36 +5,29 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://ma24jones.github.io/MJData/</loc>
-<lastmod>2019-10-05T16:21:02-00:00</lastmod>
+<lastmod>2019-10-18T14:49:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ma24jones.github.io/MJData/archives.html</loc>
-<lastmod>2019-10-05T16:21:02-00:00</lastmod>
+<lastmod>2019-10-18T14:49:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ma24jones.github.io/MJData/tags.html</loc>
-<lastmod>2019-10-05T16:21:02-00:00</lastmod>
+<lastmod>2019-10-18T14:49:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ma24jones.github.io/MJData/categories.html</loc>
-<lastmod>2019-10-05T16:21:02-00:00</lastmod>
+<lastmod>2019-10-18T14:49:22-00:00</lastmod>
 <changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://ma24jones.github.io/MJData/python-loop-through-files-in-folder.html</loc>
-<lastmod>2019-09-07T00:00:00-04:00</lastmod>
-<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -68,14 +61,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://ma24jones.github.io/MJData/category/python.html</loc>
-<lastmod>2019-09-07T00:00:00-04:56</lastmod>
+<lastmod>2019-09-06T00:00:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://ma24jones.github.io/MJData/author/matt-jones.html</loc>
-<lastmod>2019-09-07T00:00:00-04:56</lastmod>
+<lastmod>2019-09-06T00:00:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
