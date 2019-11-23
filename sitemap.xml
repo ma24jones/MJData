@@ -4,70 +4,77 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>https://ma24jones.github.io/MJData/</loc>
-<lastmod>2019-10-18T14:49:22-00:00</lastmod>
+<loc>./</loc>
+<lastmod>2019-11-23T08:43:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://ma24jones.github.io/MJData/archives.html</loc>
-<lastmod>2019-10-18T14:49:22-00:00</lastmod>
+<loc>./archives.html</loc>
+<lastmod>2019-11-23T08:43:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://ma24jones.github.io/MJData/tags.html</loc>
-<lastmod>2019-10-18T14:49:22-00:00</lastmod>
+<loc>./tags.html</loc>
+<lastmod>2019-11-23T08:43:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://ma24jones.github.io/MJData/categories.html</loc>
-<lastmod>2019-10-18T14:49:22-00:00</lastmod>
+<loc>./categories.html</loc>
+<lastmod>2019-11-23T08:43:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://ma24jones.github.io/MJData/python-add-folder-if-it-does-not-exist.html</loc>
+<loc>./about.html</loc>
+<lastmod>2019-11-23T08:43:40-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>./python-add-folder-if-it-does-not-exist.html</loc>
 <lastmod>2019-09-06T00:00:00-04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://ma24jones.github.io/MJData/web-scraping-w-selenium-beautifulsoup.html</loc>
+<loc>./web-scraping-w-selenium-beautifulsoup.html</loc>
 <lastmod>2019-08-27T00:00:00-04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://ma24jones.github.io/MJData/crimes-in-boston.html</loc>
+<loc>./crimes-in-boston.html</loc>
 <lastmod>2019-08-21T00:00:00-04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://ma24jones.github.io/MJData/category/analysis.html</loc>
+<loc>./category/analysis.html</loc>
 <lastmod>2019-08-21T00:00:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://ma24jones.github.io/MJData/category/python.html</loc>
+<loc>./category/python.html</loc>
 <lastmod>2019-09-06T00:00:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://ma24jones.github.io/MJData/author/matt-jones.html</loc>
+<loc>./author/matt-jones.html</loc>
 <lastmod>2019-09-06T00:00:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
