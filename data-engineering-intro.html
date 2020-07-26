@@ -41,22 +41,22 @@
     <meta name="msapplication-TileColor" content="#333333">
 
 <meta name="author" content="Matt Jones" />
-<meta name="description" content="Here is a quick Python guide to check if a folder exists and if not, create the folder." />
+<meta name="description" content="This is an introduction to my exploration into the world of Data Engineering." />
 <meta name="keywords" content="">
 
 <meta property="og:site_name" content="MJData"/>
-<meta property="og:title" content="Python: Add Folder If It Does Not Exist"/>
-<meta property="og:description" content="Here is a quick Python guide to check if a folder exists and if not, create the folder."/>
+<meta property="og:title" content="Data Engineering Intro"/>
+<meta property="og:description" content="This is an introduction to my exploration into the world of Data Engineering."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="./python-add-folder-if-it-does-not-exist.html"/>
+<meta property="og:url" content="./data-engineering-intro.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2019-09-06 00:00:00-04:00"/>
+<meta property="article:published_time" content="2020-07-26 00:00:00-04:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="./author/matt-jones.html">
-<meta property="article:section" content="Python"/>
-<meta property="og:image" content="./">
+<meta property="article:section" content="Data Engineering"/>
+<meta property="og:image" content="./images/pipelines.jpg">
 
-  <title>MJData &ndash; Python: Add Folder If It Does Not Exist</title>
+  <title>MJData &ndash; Data Engineering Intro</title>
 
 <!-- Google Tag Manager -->
 <script>
@@ -106,44 +106,28 @@
 <article class="single">
   <header>
       
-    <h1 id="python-add-folder-if-it-does-not-exist">Python: Add Folder If It Does Not Exist</h1>
+    <h1 id="data-engineering-intro">Data Engineering Intro</h1>
     <p>
-          Posted on 06 Sep 2019 in <a href="./category/python.html">Python</a>
+          Posted on 26 Jul 2020 in <a href="./category/data-engineering.html">Data Engineering</a>
 
 
     </p>
   </header>
 
   
+    <img src="./images/pipelines.jpg" alt="">
 
   <div>
-    <h1>Scenario</h1>
-<p>Maintaining an organized folder structure is important when you are respoible for a growing inventory of data, files, and reports.</p>
-<p>Here is how I utilize python to automate the folder directory setup on a monthly basis.</p>
-<h2>Imports</h2>
-<p>I'm using the built-in datetime and os.path python packages to set my folder path based on the Year/month.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">import</span> <span class="nn">os.path</span>
+    <h1>The Starting Line</h1>
+<div class="highlight"><pre><span></span><span class="err">As of writing this post</span>
 </pre></div>
 
 
-<h2>Code</h2>
-<p>To start, I needed to create some variables to extract the year and prior month based on today's date.</p>
-<p>So for example, if todays date is September 2, 2019...the below code will set year to 2019 and lastMonth to 08.</p>
-<p>After assigning these variables, I'm able to use them to create the filePath variable which will be used to test if the folder path exists or not.</p>
-<p>Within an if statement I used 'not os.path.exists()' and passed in the 'filePath' argument (previously created).  If this folder path does not exist then it causes the if statement to be True and executes the 'os.makedirs(filePath)' line of code.</p>
-<div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="nb">date</span><span class="p">.</span><span class="n">today</span><span class="p">()</span>
-<span class="k">first</span> <span class="o">=</span> <span class="n">today</span><span class="p">.</span><span class="k">replace</span><span class="p">(</span><span class="k">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">lastMonth</span> <span class="o">=</span> <span class="k">first</span> <span class="o">-</span> <span class="n">datetime</span><span class="p">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">year</span> <span class="o">=</span> <span class="n">lastMonth</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="ss">&quot;%Y&quot;</span><span class="p">)</span>
-<span class="n">lastMonth</span> <span class="o">=</span> <span class="n">lastMonth</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="ss">&quot;%m&quot;</span><span class="p">)</span>
-
-<span class="n">filePath</span> <span class="o">=</span> <span class="n">f</span><span class="ss">&quot;Your\\File\\Path\\{year}\\{lastMonth}</span>
-
-<span class="ss">if not os.path.exists(filePath):</span>
-<span class="ss">    os.makedirs(filePath)</span>
-<span class="ss">    print(f&quot;</span><span class="err">{</span><span class="k">year</span><span class="err">}</span><span class="o">-</span><span class="err">{</span><span class="n">lastMonth</span><span class="err">}</span> <span class="n">file</span> <span class="n">path</span> <span class="n">created</span><span class="err">&quot;</span><span class="p">)</span>
-</pre></div>
+<h1>The Finish Line</h1>
+<h1>Gameplan</h1>
+<p><img alt="Data Science Blueprint" src="/images/Data-Science-Blueprint.jpg">
+Format: <img alt="The Data Engineering Cookbook" src="https://github.com/andkret/Cookbook">
+<p align="center"><em>Source: Data Science Blueprint from</em> <a href="https://github.com/andkret/Cookbook">The Data Engineering Cookbook</a> <em>by Andreas Kretz</em></p></p>
   </div>
   <div class="tag-cloud">
     <p>

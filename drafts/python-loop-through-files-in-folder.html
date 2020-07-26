@@ -119,29 +119,29 @@
   <div>
     <h1>Scenario</h1>
 <h2>Package Install</h2>
-<div class="highlight"><pre><span></span><code><span class="err">pip install glob3</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="err">pip install glob3</span>
+</pre></div>
 
 
 <h2>Imports</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os.path</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os.path</span>
 <span class="kn">import</span> <span class="nn">glob</span>
-</code></pre></div>
+</pre></div>
 
 
 <h2>Folder and Files</h2>
-<div class="highlight"><pre><span></span><code><span class="err">folderPath = &quot;Your\\Folder\\Path\\&quot;</span>
+<div class="highlight"><pre><span></span><span class="err">folderPath = &quot;Your\\Folder\\Path\\&quot;</span>
 <span class="err">os.chdir(folderPath)</span>
 <span class="err">xl_files = glob.glob(&#39;*.xlsx&#39;)  # glob creates a list of files with .filetype</span>
-</code></pre></div>
+</pre></div>
 
 
 <h2>Loop Through Files</h2>
-<div class="highlight"><pre><span></span><code><span class="err">for file in xl_files:</span>
+<div class="highlight"><pre><span></span><span class="err">for file in xl_files:</span>
 <span class="err">    filePath = folderPath + file</span>
 <span class="err">    if os.path.exists(filePath):</span>
 <span class="err">        &lt;Your Code Here&gt;</span>
-</code></pre></div>
+</pre></div>
   </div>
   <div class="tag-cloud">
     <p>

@@ -131,24 +131,24 @@
 </ul>
 <p>I also installed the <a href="https://chromedriver.chromium.org">chromedriver.exe</a> and saved it to the same path where the python script was located.</p>
 <h2>Imports</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> <span class="k">as</span> <span class="n">bs</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">time</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>In addition to the selenium and beautiful soup packages, I am importing pandas so I can create a DataFrame with the content I am scraping and importing time so I can strategically add pauses to my code while webpages load.</p>
 <h2>Web Driver</h2>
-<div class="highlight"><pre><span></span><code><span class="err">driver = webdriver.Chrome()</span>
+<div class="highlight"><pre><span></span><span class="err">driver = webdriver.Chrome()</span>
 <span class="err">url = &lt;&quot;Your URL Here&quot;&gt;</span>
 <span class="err">driver.get(url)</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>As mentioned before, the browser I am working with is Google Chrome, so with the chromedriver.exe I am using the Selenium webdriver to interact with the browser.</p>
 <h2>Login</h2>
-<div class="highlight"><pre><span></span><code><span class="n">my_username</span> <span class="o">=</span> <span class="o">&lt;</span><span class="s1">&#39;Your Username&#39;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span><span class="n">my_username</span> <span class="o">=</span> <span class="o">&lt;</span><span class="s1">&#39;Your Username&#39;</span><span class="o">&gt;</span>
 <span class="n">my_password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="s1">&#39;Your Password&#39;</span><span class="o">&gt;</span>
 
 <span class="k">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">#</span><span class="n">Give</span> <span class="n">page</span> <span class="k">time</span> <span class="k">to</span> <span class="k">load</span>
@@ -158,7 +158,7 @@
 
 <span class="n">submitButton</span> <span class="o">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="ss">&quot;login&quot;</span><span class="p">)</span>
 <span class="n">submitButton</span><span class="p">.</span><span class="n">click</span><span class="p">()</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>My situation did require me to login with a username and password.  In order to do this I had to "inspect" the login page to locate the specific form elements an login button.</p>
@@ -166,24 +166,24 @@
 <p>I did the same thing with my password by using 'password.send_keys(my_password)'.</p>
 <p>To submit my credentials I located the button's id and used the driver.find_element_by_id() function and passed in "login".</p>
 <h2>Dropdown</h2>
-<div class="highlight"><pre><span></span><code><span class="err">driver.find_element_by_xpath(&#39;Your xpath here&#39;).click()</span>
+<div class="highlight"><pre><span></span><span class="err">driver.find_element_by_xpath(&#39;Your xpath here&#39;).click()</span>
 <span class="err">driver.find_element_by_name(&#39;find&#39;).click()</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>After logging in, I had to make a selection from a dropdown menu and click another button.</p>
 <p>To locate both of these elements, this time I used 'driver.find_element_by_xpath()' and 'driver.find_element_by_name()' after inspecting the page.</p>
 <p>I then used '.click()' to accomplish the selection and submission.</p>
 <h2>New Window</h2>
-<div class="highlight"><pre><span></span><code><span class="err">driver.switch_to.window(driver.window_handles[1])</span>
-</code></pre></div>
+<div class="highlight"><pre><span></span><span class="err">driver.switch_to.window(driver.window_handles[1])</span>
+</pre></div>
 
 
 <p>The dropdown selection resulted in a new tab opening up and displaying the report I needed.</p>
 <p>This is where I got stuck a little bit...</p>
 <p>The code was still refering to the initial tab that opened up, so I needed to use 'driver.switch_to.window(driver.window_handles[1]) in order to point the code to the correct tab.</p>
 <h2>Parse HTML</h2>
-<div class="highlight"><pre><span></span><code><span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">driver</span><span class="p">.</span><span class="n">page_source</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">soup</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">driver</span><span class="p">.</span><span class="n">page_source</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
 
 <span class="n">table_rows</span> <span class="o">=</span> <span class="n">soup</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">)</span>
 
@@ -192,22 +192,22 @@
     <span class="n">td</span> <span class="o">=</span> <span class="n">tr</span><span class="p">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
     <span class="k">row</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">.</span><span class="nb">text</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">td</span><span class="p">]</span>
     <span class="k">data</span><span class="p">.</span> <span class="n">append</span><span class="p">(</span><span class="k">row</span><span class="p">)</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>Now that I navigated to the data I needed to scrape, I used BeautifulSoup to grab the page source and parse the html.  The page source revealed that the data needed was wrapped in a table.</p>
 <p>So after some googling I found some code that used 'soup.find_all()' to locate the the table rows (tr) and table data (td) and append them into an empty list using a loop.</p>
 <h2>Pass Into Pandas DataFrame</h2>
-<div class="highlight"><pre><span></span><code><span class="s s-Atom">data</span> <span class="o">=</span> <span class="s s-Atom">pd</span><span class="p">.</span><span class="nv">DataFrame</span><span class="p">(</span><span class="s s-Atom">data</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="s s-Atom">data</span> <span class="o">=</span> <span class="s s-Atom">pd</span><span class="p">.</span><span class="nv">DataFrame</span><span class="p">(</span><span class="s s-Atom">data</span><span class="p">)</span>
 <span class="s s-Atom">data</span> <span class="o">=</span> <span class="s s-Atom">data</span><span class="p">[</span><span class="mi">3</span><span class="p">:-</span><span class="mi">4</span><span class="p">]</span> <span class="s s-Atom">#</span><span class="nv">Strip</span> <span class="s s-Atom">unecessary</span> <span class="s s-Atom">rows</span>
 
 <span class="s s-Atom">data</span><span class="p">.</span><span class="nf">to_csv</span><span class="p">(</span><span class="s s-Atom">r&#39;yourPath\yourFile.txt&#39;</span><span class="p">,</span> <span class="s s-Atom">header</span><span class="o">=</span><span class="nv">None</span><span class="p">,</span> <span class="s s-Atom">inde</span><span class="o">=</span><span class="nv">None</span><span class="p">,</span> <span class="s s-Atom">sep=&#39;\t&#39;</span><span class="p">))</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>After I had my list that contained my table data, I stored it into a Pandas DataFrame and used 'to_csv()' to save the contents as a .txt file.</p>
 <h2>Full Code Example</h2>
-<div class="highlight"><pre><span></span><code><span class="s s-Atom">from</span> <span class="s s-Atom">selenium</span> <span class="s s-Atom">import</span> <span class="s s-Atom">webdriver</span>
+<div class="highlight"><pre><span></span><span class="s s-Atom">from</span> <span class="s s-Atom">selenium</span> <span class="s s-Atom">import</span> <span class="s s-Atom">webdriver</span>
 <span class="s s-Atom">from</span> <span class="s s-Atom">bs4</span> <span class="s s-Atom">import</span> <span class="nv">BeautifulSoup</span> <span class="s s-Atom">as</span> <span class="s s-Atom">bs</span>
 <span class="s s-Atom">import</span> <span class="s s-Atom">pandas</span> <span class="s s-Atom">as</span> <span class="s s-Atom">pd</span>
 <span class="s s-Atom">import</span> <span class="s s-Atom">time</span>
@@ -251,7 +251,7 @@
 <span class="s s-Atom">data</span> <span class="o">=</span> <span class="s s-Atom">data</span><span class="p">[</span><span class="mi">3</span><span class="p">:-</span><span class="mi">4</span><span class="p">]</span> <span class="s s-Atom">#</span><span class="nv">Strip</span> <span class="s s-Atom">unecessary</span> <span class="s s-Atom">rows</span>
 
 <span class="s s-Atom">data</span><span class="p">.</span><span class="nf">to_csv</span><span class="p">(</span><span class="s s-Atom">r&#39;yourPath\yourFile.txt&#39;</span><span class="p">,</span> <span class="s s-Atom">header</span><span class="o">=</span><span class="nv">None</span><span class="p">,</span> <span class="s s-Atom">inde</span><span class="o">=</span><span class="nv">None</span><span class="p">,</span> <span class="s s-Atom">sep=&#39;\t&#39;</span><span class="p">))</span>
-</code></pre></div>
+</pre></div>
 
 
 <p>Happy Scraping!</p>
