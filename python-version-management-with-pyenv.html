@@ -132,16 +132,28 @@ $ brew install pyenv-virtualenv <span class="c1"># plugin for virtual environmen
 </pre></div>
 
 
-<p>I've built a homeserver which has an Ubuntu Server VM on it and I plan to get pyenv up and running in the future.  This is how I will install...</p>
 <h3>pyenv-installer</h3>
+<p>I've built a homeserver which has an Ubuntu Server VM on it and I plan to get pyenv up and running in the future.  This is how I will install...</p>
 <div class="highlight"><pre><span></span>$ curl https://pyenv.run <span class="p">|</span> bash
 </pre></div>
 
 
 <h2>Using Pyenv</h2>
+<p>Within my ".bash_profile" I added the following code that allows pyenv to operate a bit more seamlessly and handles the activation of virtual environments (more on this later).</p>
+<p>.bash_profile</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">command</span> <span class="o">-</span><span class="n">v</span> <span class="n">pyenv</span> <span class="mi">1</span><span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="k">null</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span><span class="p">;</span> <span class="k">then</span>
+  <span class="n">eval</span> <span class="ss">&quot;$(pyenv init -)&quot;</span>
+<span class="n">fi</span>
+
+<span class="n">export</span> <span class="n">PYENV_ROOT</span><span class="o">=</span><span class="ss">&quot;$HOME/.pyenv&quot;</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="ss">&quot;$PYENV_ROOT/bin:$PATH&quot;</span>
+<span class="n">eval</span> <span class="ss">&quot;$(pyenv virtualenv-init -)&quot;</span>
+</pre></div>
+
+
 <h3>Installing a Python Version</h3>
 <p>After installing Pyenv, the next step is to install Python.  To view the list of available pyenv Python versions, you would type...</p>
-<div class="highlight"><pre><span></span><span class="err">pyenv install --list</span>
+<div class="highlight"><pre><span></span>$ pyenv install --list
 </pre></div>
 
 
@@ -176,6 +188,7 @@ $ pyenv versions
 </pre></div>
 
 
+<h3>Pyenv Virtualenv</h3>
 <p>So instead of changing the global version of python, I will adjust the local version.  But first I want to create a virtual environment with my newly installed Python version.</p>
 <div class="highlight"><pre><span></span>$ pyenv virtualenv &lt;python_version&gt; &lt;environment_name&gt;
 
@@ -186,6 +199,17 @@ $ pyenv versions
   <span class="m">3</span>.9.0/envs/project
   project
 </pre></div>
+
+
+<p>Once the virtual environment is created with the chosen Python version, you move to your project directory and type:</p>
+<div class="highlight"><pre><span></span>$ pyenv <span class="nb">local</span> project
+</pre></div>
+
+
+<p>This will create a ".python-version" file in your current working directory that indicates which version this local project is using.</p>
+<p>Since I added the code to my ".bash_profile" file from before, whenever I cd into my project path, the virtual environment will be automatically activated using the Python version used to create that virtual environment.</p>
+<p>At this point I can add the needed dependencies for my project using the appropriate package manager (pip, conda, etc.) </p>
+<p>...and away we go.</p>
   </div>
   <div class="tag-cloud">
     <p>
