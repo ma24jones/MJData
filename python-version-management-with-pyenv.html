@@ -54,7 +54,7 @@
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="./author/matt-jones.html">
 <meta property="article:section" content="Python"/>
-<meta property="og:image" content="./images/pyenv.png">
+<meta property="og:image" content="./images/pyenv.jpg">
 
   <title>MJData &ndash; Python Version Management with Pyenv</title>
 
@@ -116,7 +116,7 @@
   </header>
 
   
-    <img src="./images/pyenv.png" alt="">
+    <img src="./images/pyenv.jpg" alt="">
 
   <div>
     <h1>Pyenv</h1>
@@ -185,6 +185,11 @@ $ pyenv versions
 <p>After using the versions command again I can see that the global Python is now set to 3.9.0 followed by a trail of who initiated the change.</p>
 <p>I've read mix things about changing the global version of Python on a Mac to anything but the system version, so I will change it back.</p>
 <div class="highlight"><pre><span></span>$ pyenv global system
+</pre></div>
+
+
+<p>Also, you can remove the Python version with the following...</p>
+<div class="highlight"><pre><span></span>$ pyenv uninstall &lt;python_version&gt;
 </pre></div>
 
 
