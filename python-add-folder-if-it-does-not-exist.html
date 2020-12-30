@@ -134,17 +134,17 @@
 <p>So for example, if todays date is September 2, 2019...the below code will set year to 2019 and lastMonth to 08.</p>
 <p>After assigning these variables, I'm able to use them to create the filePath variable which will be used to test if the folder path exists or not.</p>
 <p>Within an if statement I used 'not os.path.exists()' and passed in the 'filePath' argument (previously created).  If this folder path does not exist then it causes the if statement to be True and executes the 'os.makedirs(filePath)' line of code.</p>
-<div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="nb">date</span><span class="p">.</span><span class="n">today</span><span class="p">()</span>
-<span class="k">first</span> <span class="o">=</span> <span class="n">today</span><span class="p">.</span><span class="k">replace</span><span class="p">(</span><span class="k">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">lastMonth</span> <span class="o">=</span> <span class="k">first</span> <span class="o">-</span> <span class="n">datetime</span><span class="p">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">year</span> <span class="o">=</span> <span class="n">lastMonth</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="ss">&quot;%Y&quot;</span><span class="p">)</span>
-<span class="n">lastMonth</span> <span class="o">=</span> <span class="n">lastMonth</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="ss">&quot;%m&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">first</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">lastMonth</span> <span class="o">=</span> <span class="n">first</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">year</span> <span class="o">=</span> <span class="n">lastMonth</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y&quot;</span><span class="p">)</span>
+<span class="n">lastMonth</span> <span class="o">=</span> <span class="n">lastMonth</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m&quot;</span><span class="p">)</span>
 
-<span class="n">filePath</span> <span class="o">=</span> <span class="n">f</span><span class="ss">&quot;Your\\File\\Path\\{year}\\{lastMonth}</span>
+<span class="n">filePath</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Your</span><span class="se">\\</span><span class="s2">File</span><span class="se">\\</span><span class="s2">Path</span><span class="se">\\</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="se">\\</span><span class="si">{</span><span class="n">lastMonth</span><span class="si">}</span>
 
-<span class="ss">if not os.path.exists(filePath):</span>
-<span class="ss">    os.makedirs(filePath)</span>
-<span class="ss">    print(f&quot;</span><span class="err">{</span><span class="k">year</span><span class="err">}</span><span class="o">-</span><span class="err">{</span><span class="n">lastMonth</span><span class="err">}</span> <span class="n">file</span> <span class="n">path</span> <span class="n">created</span><span class="err">&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filePath</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">lastMonth</span><span class="si">}</span><span class="s2"> file path created&quot;</span><span class="p">)</span>
 </pre></div>
   </div>
   <div class="tag-cloud">
