@@ -41,12 +41,12 @@
     <meta name="msapplication-TileColor" content="#333333">
 
 <meta name="author" content="Matt Jones" />
-<meta name="description" content="" />
+<meta name="description" content="Tidy Data¶This post was inspired by Tidy Data written by Hadley Wickham. Even though the article was presented using R programming, I took the concepts and followed along using Python (similar to Daniel Chen&#39;s PyData Presentation on Tidying Data in Pandas). Data tidying is a subset of the data cleaning step where the goal is to prep your data in a structure that is optimal for analytics and visualizations. A dataset is considered &#34;tidy&#34; when it follows these 3 principles:" />
 <meta name="keywords" content="">
 
 <meta property="og:site_name" content="MJData"/>
 <meta property="og:title" content="Tidy Data Principles"/>
-<meta property="og:description" content=""/>
+<meta property="og:description" content="Tidy Data¶This post was inspired by Tidy Data written by Hadley Wickham. Even though the article was presented using R programming, I took the concepts and followed along using Python (similar to Daniel Chen&#39;s PyData Presentation on Tidying Data in Pandas). Data tidying is a subset of the data cleaning step where the goal is to prep your data in a structure that is optimal for analytics and visualizations. A dataset is considered &#34;tidy&#34; when it follows these 3 principles:"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="../drafts/tidy-data-principles.html"/>
 <meta property="og:type" content="article"/>
@@ -1229,7 +1229,98 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing code_cell rendered">
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Tidy-Data">Tidy Data<a class="anchor-link" href="#Tidy-Data">&#182;</a></h1><p>This post was inspired by <a href="https://vita.had.co.nz/papers/tidy-data.pdf">Tidy Data</a> written by Hadley Wickham.  Even though the article was presented using R programming, I took the concepts and followed along using Python (similar to Daniel Chen's <a href="https://youtu.be/iYie42M1ZyU">PyData Presentation on Tidying Data in Pandas</a>).</p>
+<p>Data tidying is a subset of the data cleaning step where the goal is to prep your data in a structure that is optimal for analytics and visualizations. A dataset is considered "tidy" when it follows these 3 principles:</p>
+<ol>
+<li>Each variable forms a column.</li>
+<li>Each observation forms a row.</li>
+<li>Each type of observational unit forms a table.</li>
+</ol>
+<p>Wickham gave a simple example of patient treatment data that depicts these principles.</p>
+<table>
+<thead><tr>
+<th style="text-align:left"></th>
+<th style="text-align:right">treatmentA</th>
+<th style="text-align:right">treatmentB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">John Smith</td>
+<td style="text-align:right">-</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td style="text-align:left">Jane Doe</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:left">Mary Johnson</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1</td>
+</tr>
+</tbody>
+</table>
+<p>To tidy the above dataset, the treatment columns should be considered one variable and combined into a single column. Now the data is represented with variables in columns and observations in rows.</p>
+<table>
+<thead><tr>
+<th style="text-align:left">name</th>
+<th style="text-align:right">treatment</th>
+<th style="text-align:right">result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">John Smith</td>
+<td style="text-align:right">a</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td style="text-align:left">Jane Doe</td>
+<td style="text-align:right">a</td>
+<td style="text-align:right">16</td>
+</tr>
+<tr>
+<td style="text-align:left">Mary Johnson</td>
+<td style="text-align:right">a</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">John Smith</td>
+<td style="text-align:right">b</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td style="text-align:left">Jane Doe</td>
+<td style="text-align:right">b</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td style="text-align:left">Mary Johnson</td>
+<td style="text-align:right">b</td>
+<td style="text-align:right">1</td>
+</tr>
+</tbody>
+</table>
+<p>More often than not, real world data violates the three "tidy data" principles.  Wickham has identified five of the most common situations where data is considered untidy:</p>
+<ol>
+<li>Column headers are values, not variable names.</li>
+<li>Multiple variables are stored in one column.</li>
+<li>Variables are stored in both rows and columns.</li>
+<li>Multiple types of observational units are stored in the same table.</li>
+<li>A single observational unit is stored in multiple tables.</li>
+</ol>
+<p>I will go over a few of these scenarios and clean up the data using Python.</p>
+<p>Lets get started!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
