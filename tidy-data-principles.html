@@ -54,7 +54,7 @@
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="./author/matt-jones.html">
 <meta property="article:section" content="Python"/>
-<meta property="og:image" content="./">
+<meta property="og:image" content="./images/tidy_data.png">
 
   <title>MJData &ndash; Tidy Data Principles</title>
 
@@ -116,6 +116,7 @@
   </header>
 
   
+    <img src="./images/tidy_data.png" alt="">
 
   <div>
     <style type="text/css">/*!
@@ -1336,7 +1337,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.-Column-headers-are-values,-not-variable-names">1. Column headers are values, not variable names<a class="anchor-link" href="#1.-Column-headers-are-values,-not-variable-names">&#182;</a></h3><p>The first example of an untidy dataset is column headers that represent values and not variable names.  This is common in a pivot table or an exhibit designed for a presentation.  Although this can be a valuable view, it is not an ideal shape to generate any additional insights or visualization from.  The below dataset depicts the relationship between religion and income in the US.</p>
+<h2 id="1.-Column-headers-are-values,-not-variable-names">1. Column headers are values, not variable names<a class="anchor-link" href="#1.-Column-headers-are-values,-not-variable-names">&#182;</a></h2><p>The first example of an untidy dataset is column headers that represent values and not variable names.  This is common in a pivot table or an exhibit designed for a presentation.  Although this can be a valuable view, it is not an ideal shape to generate any additional insights or visualization from.  The below dataset depicts the relationship between religion and income in the US.</p>
 
 </div>
 </div>
@@ -1469,7 +1470,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In order to clean this data, we need to transpose the income bins into rows.  This can be done with Python's <strong>mel</strong> function.  In our example we pass <em>'religion'</em> into the <strong>id_vars</strong> parameter, which holds this variable in its column form, while the remaining columns are "melted" (pun intended) into another column.  Melt also has additional parameters to assist with renaming the newly converted columns.  With this, the data is now in a longer form and better suited for analysis tools and further exploration.</p>
+<p>In order to clean this data, we need to transpose the income bins into rows.  This can be done with Python's <strong>melt</strong> function.  In our example we pass <em>'religion'</em> into the <strong>id_vars</strong> parameter, which holds this variable in its column form, while the remaining columns are "melted" (pun intended) into another column.  Melt also has additional parameters to assist with renaming the newly converted columns.  With this, the data is now in a longer form and better suited for analysis tools and further exploration.</p>
 
 </div>
 </div>
@@ -1578,7 +1579,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.-Multiple-variables-stored-in-one-column">2. Multiple variables stored in one column<a class="anchor-link" href="#2.-Multiple-variables-stored-in-one-column">&#182;</a></h3><p>The next scenario of a messy dataset is when multiple variables are stored in a single column.  This can be seen in our next example of tuberculosis cases where the columns represent both gender and age ranges (m/f = Male/Female, age ranges are 0-4, 5-14, 15-24, etc.).</p>
+<h2 id="2.-Multiple-variables-stored-in-one-column">2. Multiple variables stored in one column<a class="anchor-link" href="#2.-Multiple-variables-stored-in-one-column">&#182;</a></h2><p>The next scenario of a messy dataset is when multiple variables are stored in a single column.  This can be seen in our next example of tuberculosis cases where the columns represent both gender and age ranges (m/f = Male/Female, age ranges are 0-4, 5-14, 15-24, etc.).</p>
 
 </div>
 </div>
@@ -2249,7 +2250,7 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.-Variables-are-stored-in-both-rows-and-columns">3. Variables are stored in both rows and columns<a class="anchor-link" href="#3.-Variables-are-stored-in-both-rows-and-columns">&#182;</a></h3><p>The final messy dataset scenario I'm going to explore is when variables are stored in both rows and columns.  I'll be looking at weather data which shows min and max temperatures by year/month/day.</p>
+<h2 id="3.-Variables-are-stored-in-both-rows-and-columns">3. Variables are stored in both rows and columns<a class="anchor-link" href="#3.-Variables-are-stored-in-both-rows-and-columns">&#182;</a></h2><p>The final messy dataset scenario I'm going to explore is when variables are stored in both rows and columns.  I'll be looking at weather data which shows min and max temperatures by year/month/day.</p>
 
 </div>
 </div>
@@ -3082,11 +3083,24 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h3><p>Prepping your data in a tidy, well structured manner is extremely important for the later steps of any Data Analytics/Data Science project.  In this post I explored some ways to reshape untidy data using Pandas <strong>melt</strong>, <strong>pivot_table</strong>, and string (<strong>str</strong> attribute) functions.  Creating a tidy dataset is only part of the overall process of data cleaning, so our data wrangling adventures are just beginning.
+<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>Prepping your data in a tidy, well structured manner is extremely important for the later steps of any Data Analytics/Data Science project.  In this post I explored some ways to reshape untidy data using Pandas <strong>melt</strong>, <strong>pivot_table</strong>, and string (<strong>str</strong> attribute) functions.  Creating a tidy dataset is only part of the overall process of data cleaning, so our data wrangling adventures are just beginning.
 Thanks for reading!</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
  
 
