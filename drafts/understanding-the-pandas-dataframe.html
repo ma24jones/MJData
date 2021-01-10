@@ -50,7 +50,7 @@
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="../drafts/understanding-the-pandas-dataframe.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2021-01-10 00:00:00-05:00"/>
+<meta property="article:published_time" content="2021-01-12 00:00:00-05:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="../author/matt-jones.html">
 <meta property="article:section" content="Python"/>
@@ -109,7 +109,7 @@
       
     <h1 id="understanding-the-pandas-dataframe">Understanding the Pandas DataFrame</h1>
     <p>
-          Posted on 10 Jan 2021 in <a href="../category/python.html">Python</a>
+          Posted on 12 Jan 2021 in <a href="../category/python.html">Python</a>
 
 
     </p>
@@ -1242,25 +1242,22 @@ h6:hover .anchor-link {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pandas is a very popular Python library used to read, clean, analyze, and even plot data.  At the core of Pandas the programmer interacts with something called a <strong>DataFrame</strong>.  The DataFrame is made up of an <strong>index</strong>, <strong>column(s)</strong>, and <strong>values</strong>.  Each column is a Pandas <strong>Series</strong> which can only represent a single data type (int, float, bool, object, category etc.).</p>
+<p>Lets take a closer look at the components of a Pandas DataFrame.  I'll first import pandas and use the common alias of <strong>pd</strong>.  Next I will read in some data on wine reviews using the <strong>pd.read_csv()</strong> method and store it in a variable called <em>"wine"</em>.  I can take a look at the first five rows by calling <strong>head()</strong>.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../datasets/wine_reviews/winemag-data-130k-v2.csv&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">wine</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1273,7 +1270,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[31]:</div>
 
 
 
@@ -1403,6 +1400,88 @@ h6:hover .anchor-link {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So here you can visualize the DataFrame's components with the <strong>index</strong> positioned vertically along the left side, the <strong>columns</strong> horizontally across the top, and the <strong>values</strong> throughout the rows and columns.  Now, if you call <strong>type(wine)</strong> you can see that this variable is in fact a Pandas DataFrame.  Taking it a step further, calling <strong>type(wine['counrtry'])</strong>, confirms that the <em>"country"</em> column is a Pandas <strong>Series</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">wine</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[29]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pandas.core.frame.DataFrame</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">wine</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pandas.core.series.Series</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can access a DataFrame's components by using the <strong>index</strong>, <strong>columns</strong>, and <strong>values</strong> attributes.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
@@ -1420,7 +1499,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">index</span>
@@ -1436,7 +1515,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[36]:</div>
 
 
 
