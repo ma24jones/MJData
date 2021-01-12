@@ -1477,7 +1477,12 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can access a DataFrame's components by using the <strong>index</strong>, <strong>columns</strong>, and <strong>values</strong> attributes.</p>
+<p>You can access a DataFrame's components by using the <strong>index</strong>, <strong>columns</strong>, and <strong>values</strong> attributes.  In this example:</p>
+<ul>
+<li>The index is something called a <strong>RangeIndex</strong> that starts at 0 and ends at 129,971.  </li>
+<li>The columns attribute shows all of the column names within the dataframe.</li>
+<li>The values attribute displays the data records (example below shows the first record in the dataset)</li>
+</ul>
 
 </div>
 </div>
@@ -1499,7 +1504,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">index</span>
@@ -1515,7 +1520,7 @@ h6:hover .anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt output_prompt">Out[38]:</div>
 
 
 
@@ -1532,10 +1537,94 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[44]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index([&#39;country&#39;, &#39;description&#39;, &#39;designation&#39;, &#39;points&#39;, &#39;price&#39;, &#39;province&#39;,
+       &#39;region_1&#39;, &#39;region_2&#39;, &#39;taster_name&#39;, &#39;taster_twitter_handle&#39;, &#39;title&#39;,
+       &#39;variety&#39;, &#39;winery&#39;],
+      dtype=&#39;object&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[47]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([&#39;Italy&#39;,
+       &#34;Aromas include tropical fruit, broom, brimstone and dried herb. The palate isn&#39;t overly expressive, offering unripened apple, citrus and dried sage alongside brisk acidity.&#34;,
+       &#39;Vulkà Bianco&#39;, 87, nan, &#39;Sicily &amp; Sardinia&#39;, &#39;Etna&#39;, nan,
+       &#39;Kerin O’Keefe&#39;, &#39;@kerinokeefe&#39;,
+       &#39;Nicosia 2013 Vulkà Bianco  (Etna)&#39;, &#39;White Blend&#39;, &#39;Nicosia&#39;],
+      dtype=object)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Calling <strong>type()</strong> on these attributes, we see some interesting output.  <strong>Index</strong> and <strong>columns</strong> appear to be similar in that they are both considered a type of index.  It is common to refer to the index as the <em>"row index"</em> and column as the <em>"column index"</em>.  While <strong>values</strong> is actually considered a <em>"ndarray"</em>, an object that comes from the <strong>Numpy</strong> library, which <strong>Pandas</strong> has built upon.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -1552,7 +1641,9 @@ h6:hover .anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;country&#39;, &#39;description&#39;, &#39;designation&#39;, &#39;points&#39;, &#39;price&#39;, &#39;province&#39;, &#39;region_1&#39;, &#39;region_2&#39;, &#39;taster_name&#39;, &#39;taster_twitter_handle&#39;, &#39;title&#39;, &#39;variety&#39;, &#39;winery&#39;]
+<pre>&lt;class &#39;pandas.core.indexes.range.RangeIndex&#39;&gt;
+&lt;class &#39;pandas.core.indexes.base.Index&#39;&gt;
+&lt;class &#39;numpy.ndarray&#39;&gt;
 </pre>
 </div>
 </div>
@@ -1561,42 +1652,13 @@ h6:hover .anchor-link {
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[25]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([&#39;Portugal&#39;,
-       &#34;This is ripe and fruity, a wine that is smooth while still structured. Firm tannins are filled out with juicy red berry fruits and freshened with acidity. It&#39;s  already drinkable, although it will certainly be better from 2016.&#34;,
-       &#39;Avidagos&#39;, 87, 15.0, &#39;Douro&#39;, nan, nan, &#39;Roger Voss&#39;,
-       &#39;@vossroger&#39;, &#39;Quinta dos Avidagos 2011 Avidagos Red (Douro)&#39;,
-       &#39;Portuguese Red&#39;, &#39;Quinta dos Avidagos&#39;], dtype=object)</pre>
-</div>
-
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The final method I want to show is <strong>info()</strong>.  Calling this method prints out a high level overview of the dataframe, that displays the index, lists the columns, and provides valuable information on non-null counts, data types, and memory usage.</p>
 
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1648,18 +1710,14 @@ memory usage: 12.9+ MB
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>In this post I explored the components of the Dataframe using the <strong>index</strong>, <strong>columns</strong>, and <strong>values</strong> attributes.  Taking a closer look at the type of these attributes, I discovered that the index and columns are both considered to be Index's, while the values are actually a Numpy ndarray.  By calling the <strong>info()</strong> method, the output combined some of this attribute information along with some very valuable details on non-null counts, column data types, and memory usage.</p>
+<p>Thanks for reading!</p>
 
-    </div>
 </div>
 </div>
-
 </div>
  
 
