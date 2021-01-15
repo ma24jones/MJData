@@ -1,15 +1,11 @@
-.table {
-
-    width: inherit;
-    max-width: 100%;
-    margin-bottom: 21px;
-    padding: 6px 13px;
-}
-
 div.prompt.input_prompt { 
     color: navy;
 }
 
 div.prompt.output_prompt { 
     color: red;
+}
+
+div.output_wrapper {
+    overflow-x: scroll;
 }
