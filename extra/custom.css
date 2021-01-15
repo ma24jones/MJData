@@ -9,3 +9,13 @@ div.prompt.output_prompt {
 div.output_wrapper {
     overflow-x: scroll;
 }
+
+body {
+    margin: 0;
+    font-family: source sans pro,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-size: 1.00rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #222;
+    text-align: left;
+}
