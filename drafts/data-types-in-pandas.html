@@ -119,9 +119,97 @@
   
 
   <div>
-    <div class="cell border-box-sizing code_cell rendered">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Data types (aka dtypes) are useful for programs to determine how they can operate on a certain set of data.  A simple example of this is how Python treats integers vs. strings.  When you add integers in Python (1+2), you get back the sum of the values, while strings return a concatenation of the string values ('cat' + 'dog' = catdog).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># adding two integers</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Adding integers 1 + 2 = </span><span class="si">{</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># adding two strings</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Adding strings &quot;cat&quot; + &quot;dog&quot; = </span><span class="si">{</span><span class="s2">&quot;cat&quot;</span> <span class="o">+</span> <span class="s2">&quot;dog&quot;</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Adding integers 1 + 2 = 3
+Adding strings &#34;cat&#34; + &#34;dog&#34; = catdog
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th style="text-align:left">Pandas dtypes</th>
+<th style="text-align:left">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">object</td>
+<td style="text-align:left">holds any Python object, including strings</td>
+</tr>
+<tr>
+<td style="text-align:left">int64</td>
+<td style="text-align:left">integer numbers</td>
+</tr>
+<tr>
+<td style="text-align:left">float64</td>
+<td style="text-align:left">floating point numbers</td>
+</tr>
+<tr>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">True or False values</td>
+</tr>
+<tr>
+<td style="text-align:left">datetime64</td>
+<td style="text-align:left">Date and Time values</td>
+</tr>
+<tr>
+<td style="text-align:left">timedelta[ns]</td>
+<td style="text-align:left">Difference between two datetimes</td>
+</tr>
+<tr>
+<td style="text-align:left">category</td>
+<td style="text-align:left">Limited list of string values</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -134,7 +222,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../datasets/wine_reviews/winemag-data-130k-v2.csv&#39;</span><span class="p">)</span>
@@ -151,7 +239,7 @@
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[42]:</div>
+    <div class="prompt output_prompt">Out[69]:</div>
 
 
 
@@ -281,6 +369,66 @@
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Finding-Data-types-in-your-DataFrame">Finding Data types in your DataFrame<a class="anchor-link" href="#Finding-Data-types-in-your-DataFrame">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[44]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>country                   object
+description               object
+designation               object
+points                     int64
+price                    float64
+province                  object
+region_1                  object
+region_2                  object
+taster_name               object
+taster_twitter_handle     object
+title                     object
+variety                   object
+winery                    object
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[55]:</div>
@@ -333,52 +481,6 @@ memory usage: 12.0+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">dtypes</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[44]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>country                   object
-description               object
-designation               object
-points                     int64
-price                    float64
-province                  object
-region_1                  object
-region_2                  object
-taster_name               object
-taster_twitter_handle     object
-title                     object
-variety                   object
-winery                    object
-dtype: object</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -412,6 +514,13 @@ dtype: int64</pre>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Selecting-Columns-by-Data-Type">Selecting Columns by Data Type<a class="anchor-link" href="#Selecting-Columns-by-Data-Type">&#182;</a></h2>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -515,6 +624,60 @@ dtype: int64</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Convert-data-types-and-reduce-memory-usage">Convert data types and reduce memory usage<a class="anchor-link" href="#Convert-data-types-and-reduce-memory-usage">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[60]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index                         128
+country                   7989711
+description              42352034
+designation               8149866
+points                    1039768
+price                     1039768
+province                  8774807
+region_1                  8576597
+region_2                  5993056
+taster_name               8626854
+taster_twitter_handle     7909446
+title                    15076889
+variety                   9176985
+winery                    9382168
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[50]:</div>
@@ -576,10 +739,10 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -592,32 +755,29 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[57]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 129971 entries, 0 to 129970
-Data columns (total 13 columns):
- #   Column                 Non-Null Count   Dtype   
----  ------                 --------------   -----   
- 0   country                129908 non-null  category
- 1   description            129971 non-null  object  
- 2   designation            92506 non-null   object  
- 3   points                 129971 non-null  int64   
- 4   price                  120975 non-null  float64 
- 5   province               129908 non-null  object  
- 6   region_1               108724 non-null  object  
- 7   region_2               50511 non-null   object  
- 8   taster_name            103727 non-null  object  
- 9   taster_twitter_handle  98758 non-null   object  
- 10  title                  129971 non-null  object  
- 11  variety                129970 non-null  object  
- 12  winery                 129971 non-null  object  
-dtypes: category(1), float64(1), int64(1), object(10)
-memory usage: 12.0+ MB
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index                         128
+country                    133814
+description              42352034
+designation               8149866
+points                    1039768
+price                     1039768
+province                  8774807
+region_1                  8576597
+region_2                  5993056
+taster_name               8626854
+taster_twitter_handle     7909446
+title                    15076889
+variety                   9176985
+winery                    9382168
+dtype: int64</pre>
 </div>
+
 </div>
 
 </div>
