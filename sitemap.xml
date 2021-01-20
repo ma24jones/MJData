@@ -5,49 +5,49 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./</loc>
-<lastmod>2021-01-20T17:47:33-00:00</lastmod>
+<lastmod>2021-01-20T17:49:05-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./archives.html</loc>
-<lastmod>2021-01-20T17:47:33-00:00</lastmod>
+<lastmod>2021-01-20T17:49:05-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./tags.html</loc>
-<lastmod>2021-01-20T17:47:33-00:00</lastmod>
+<lastmod>2021-01-20T17:49:05-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./categories.html</loc>
-<lastmod>2021-01-20T17:47:33-00:00</lastmod>
+<lastmod>2021-01-20T17:49:05-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./bio.html</loc>
-<lastmod>2021-01-20T17:47:33-00:00</lastmod>
+<lastmod>2021-01-20T17:49:05-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./projects.html</loc>
-<lastmod>2021-01-20T17:47:33-00:00</lastmod>
+<lastmod>2021-01-20T17:49:05-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./data-types-in-pandas.html</loc>
-<lastmod>2021-01-12T00:00:00-05:00</lastmod>
+<lastmod>2021-01-20T00:00:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -103,14 +103,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./category/python.html</loc>
-<lastmod>2021-01-12T00:00:00-04:56</lastmod>
+<lastmod>2021-01-20T00:00:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./author/matt-jones.html</loc>
-<lastmod>2021-01-12T00:00:00-04:56</lastmod>
+<lastmod>2021-01-20T00:00:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
