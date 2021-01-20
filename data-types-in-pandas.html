@@ -1,0 +1,993 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+
+    <link href="./extra/custom.css" rel="stylesheet">
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-87206506-3', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#333333">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#333333">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Microsoft EDGE -->
+    <meta name="msapplication-TileColor" content="#333333">
+
+<meta name="author" content="Matt Jones" />
+<meta name="description" content="Data types (aka dtypes) are useful for programs to determine how they can store and operate on a certain set of data. A simple example of this is how Python treats integers vs. strings. When you add integers in Python (1+2), you get back the sum of the values, while adding together two strings return a concatenation of the string values (&#39;cat&#39; + &#39;dog&#39; = catdog)." />
+<meta name="keywords" content="">
+
+<meta property="og:site_name" content="MJData"/>
+<meta property="og:title" content="Data Types in Pandas"/>
+<meta property="og:description" content="Data types (aka dtypes) are useful for programs to determine how they can store and operate on a certain set of data. A simple example of this is how Python treats integers vs. strings. When you add integers in Python (1+2), you get back the sum of the values, while adding together two strings return a concatenation of the string values (&#39;cat&#39; + &#39;dog&#39; = catdog)."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./data-types-in-pandas.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-01-12 00:00:00-05:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/matt-jones.html">
+<meta property="article:section" content="Python"/>
+<meta property="og:image" content="./images/dtypes.png">
+
+  <title>MJData &ndash; Data Types in Pandas</title>
+
+<!-- Google Tag Manager -->
+<script>
+  (function(w,d,s,l,i){
+    w[l]=w[l]||[];
+    w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T6SQGGH');
+</script>
+<!-- End Google Tag Manager --></head>
+<body>
+<!-- Google Tag Manager -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6SQGGH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager -->  <aside>
+    <div>
+      <a href=".">
+        <img src="./theme/img/profile.jpeg" alt="Matt Jones" title="Matt Jones">
+      </a>
+      <h1><a href=".">Matt Jones</a></h1>
+
+<p>Data Analyst</p>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/ma24jones" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/matthew-jones-51683814/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href=".">    Home
+</a>
+
+      <a href="./bio.html">BIO</a>
+      <a href="./projects.html">PROJECTS</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="data-types-in-pandas">Data Types in Pandas</h1>
+    <p>
+          Posted on 12 Jan 2021 in <a href="./category/python.html">Python</a>
+
+
+    </p>
+  </header>
+
+  
+    <img src="./images/dtypes.png" alt="">
+
+  <div>
+    <body><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Data types (aka dtypes) are useful for programs to determine how they can store and operate on a certain set of data.  A simple example of this is how Python treats integers vs. strings.  When you add integers in Python (1+2), you get back the sum of the values, while adding together two strings return a concatenation of the string values ('cat' + 'dog' = catdog).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># adding two integers</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Adding integers 1 + 2 = </span><span class="si">{</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># adding two strings</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Adding strings &quot;cat&quot; + &quot;dog&quot; = </span><span class="si">{</span><span class="s2">&quot;cat&quot;</span> <span class="o">+</span> <span class="s2">&quot;dog&quot;</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Adding integers 1 + 2 = 3
+Adding strings &#34;cat&#34; + &#34;dog&#34; = catdog
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When looking at the list of Pandas data types, you'll find many that are fundementally consistent with Numpy and Python (int64, float64, bool, object) with a few that are unique to the Pandas libarary (datetime64, timedelta, category).  Each column in a Pandas DataFrame is assigned a single datatype.  In this post I'm going to load in a dataset on wine reviews, explore the data types associated with the information, and make some type conversions.</p>
+<table>
+<thead><tr>
+<th style="text-align:left">Pandas dtypes</th>
+<th style="text-align:left">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">object</td>
+<td style="text-align:left">holds any Python object, including strings</td>
+</tr>
+<tr>
+<td style="text-align:left">int64</td>
+<td style="text-align:left">integer numbers</td>
+</tr>
+<tr>
+<td style="text-align:left">float64</td>
+<td style="text-align:left">floating point numbers</td>
+</tr>
+<tr>
+<td style="text-align:left">bool</td>
+<td style="text-align:left">True or False values</td>
+</tr>
+<tr>
+<td style="text-align:left">datetime64</td>
+<td style="text-align:left">Date and Time values</td>
+</tr>
+<tr>
+<td style="text-align:left">timedelta[ns]</td>
+<td style="text-align:left">Difference between two datetimes</td>
+</tr>
+<tr>
+<td style="text-align:left">category</td>
+<td style="text-align:left">Limited list of string values</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../datasets/wine_reviews/winemag-data-130k-v2.csv&#39;</span><span class="p">)</span>
+<span class="n">wine</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>description</th>
+      <th>designation</th>
+      <th>points</th>
+      <th>price</th>
+      <th>province</th>
+      <th>region_1</th>
+      <th>region_2</th>
+      <th>taster_name</th>
+      <th>taster_twitter_handle</th>
+      <th>title</th>
+      <th>variety</th>
+      <th>winery</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Italy</td>
+      <td>Aromas include tropical fruit, broom, brimston...</td>
+      <td>Vulkà Bianco</td>
+      <td>87</td>
+      <td>NaN</td>
+      <td>Sicily &amp; Sardinia</td>
+      <td>Etna</td>
+      <td>NaN</td>
+      <td>Kerin O’Keefe</td>
+      <td>@kerinokeefe</td>
+      <td>Nicosia 2013 Vulkà Bianco  (Etna)</td>
+      <td>White Blend</td>
+      <td>Nicosia</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Portugal</td>
+      <td>This is ripe and fruity, a wine that is smooth...</td>
+      <td>Avidagos</td>
+      <td>87</td>
+      <td>15.0</td>
+      <td>Douro</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Roger Voss</td>
+      <td>@vossroger</td>
+      <td>Quinta dos Avidagos 2011 Avidagos Red (Douro)</td>
+      <td>Portuguese Red</td>
+      <td>Quinta dos Avidagos</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>US</td>
+      <td>Tart and snappy, the flavors of lime flesh and...</td>
+      <td>NaN</td>
+      <td>87</td>
+      <td>14.0</td>
+      <td>Oregon</td>
+      <td>Willamette Valley</td>
+      <td>Willamette Valley</td>
+      <td>Paul Gregutt</td>
+      <td>@paulgwine</td>
+      <td>Rainstorm 2013 Pinot Gris (Willamette Valley)</td>
+      <td>Pinot Gris</td>
+      <td>Rainstorm</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>US</td>
+      <td>Pineapple rind, lemon pith and orange blossom ...</td>
+      <td>Reserve Late Harvest</td>
+      <td>87</td>
+      <td>13.0</td>
+      <td>Michigan</td>
+      <td>Lake Michigan Shore</td>
+      <td>NaN</td>
+      <td>Alexander Peartree</td>
+      <td>NaN</td>
+      <td>St. Julian 2013 Reserve Late Harvest Riesling ...</td>
+      <td>Riesling</td>
+      <td>St. Julian</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>US</td>
+      <td>Much like the regular bottling from 2012, this...</td>
+      <td>Vintner's Reserve Wild Child Block</td>
+      <td>87</td>
+      <td>65.0</td>
+      <td>Oregon</td>
+      <td>Willamette Valley</td>
+      <td>Willamette Valley</td>
+      <td>Paul Gregutt</td>
+      <td>@paulgwine</td>
+      <td>Sweet Cheeks 2012 Vintner's Reserve Wild Child...</td>
+      <td>Pinot Noir</td>
+      <td>Sweet Cheeks</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Finding-Data-types-in-your-DataFrame">Finding Data types in your DataFrame<a class="anchor-link" href="#Finding-Data-types-in-your-DataFrame">&#182;</a></h2><p>Once the data is read into a DataFrame, there are two options to view each column's data type.  The first is calling <strong>.dtypes</strong> on your DataFrame object.  This returns a list of column names with the corresponding data type next to it.  You can chain together <strong>.dtypes.values_counts() to see how many columns each data type has.  The second option to view data types is calling </strong>.info()**.  This option shows both the column data types and data type column counts as well as some valuable details on index info, Non-Null Count, and memory usage.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>country                   object
+description               object
+designation               object
+points                     int64
+price                    float64
+province                  object
+region_1                  object
+region_2                  object
+taster_name               object
+taster_twitter_handle     object
+title                     object
+variety                   object
+winery                    object
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>object     11
+int64       1
+float64     1
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 129971 entries, 0 to 129970
+Data columns (total 13 columns):
+ #   Column                 Non-Null Count   Dtype  
+---  ------                 --------------   -----  
+ 0   country                129908 non-null  object 
+ 1   description            129971 non-null  object 
+ 2   designation            92506 non-null   object 
+ 3   points                 129971 non-null  int64  
+ 4   price                  120975 non-null  float64
+ 5   province               129908 non-null  object 
+ 6   region_1               108724 non-null  object 
+ 7   region_2               50511 non-null   object 
+ 8   taster_name            103727 non-null  object 
+ 9   taster_twitter_handle  98758 non-null   object 
+ 10  title                  129971 non-null  object 
+ 11  variety                129970 non-null  object 
+ 12  winery                 129971 non-null  object 
+dtypes: float64(1), int64(1), object(11)
+memory usage: 12.9+ MB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>#</p>
+<h1 id="Selecting-Columns-by-Data-Type">Selecting Columns by Data Type<a class="anchor-link" href="#Selecting-Columns-by-Data-Type">&#182;</a></h1><p>Pandas offers a useful way to subset a DataFrame's columns based on the column dtypes by calling <em>DataFrame</em><strong>.select_dtypes(</strong><em>include=None,exclude-None</em><strong>)</strong>.</p>
+<p>Here are some notes taken from the Pandas documentation on use cases for this method:</p>
+<ul>
+<li>To select all <em>numeric</em> types, use <strong>np.number</strong> or <strong><em>'number'</em></strong></li>
+<li>To select strings you must use the <strong>object</strong> dtype, but note that this will return all <strong>object</strong> dtype columns</li>
+<li>To select <em>datetimes</em>, use <strong>np.datetime64</strong>, <strong><em>'datetime'</em></strong> or <strong><em>'datetime64'</em></strong></li>
+<li>To select <em>timedeltas</em>, use <strong><em>np.timedelta64</em></strong>, <strong><em>'timedelta'</em></strong> or <strong><em>'timedelta64'</em></strong></li>
+<li>To select Pandas <em>categorical</em> dtypes, use <strong><em>'category'</em></strong></li>
+</ul>
+<p>Using the <strong>select_dtypes()</strong> method, I'm able to split out number columns and store tham in a list named <em>'num_cols'</em>.  I can do the same with non-number columns using the <em>exclude</em> parameter and storing in a list named <em>'txt_cols'</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_cols</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_cols</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;points&#39;, &#39;price&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">txt_cols</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">txt_cols</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;country&#39;,
+ &#39;description&#39;,
+ &#39;designation&#39;,
+ &#39;province&#39;,
+ &#39;region_1&#39;,
+ &#39;region_2&#39;,
+ &#39;taster_name&#39;,
+ &#39;taster_twitter_handle&#39;,
+ &#39;title&#39;,
+ &#39;variety&#39;,
+ &#39;winery&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Convert-data-types-and-reduce-memory-usage">Convert data types and reduce memory usage<a class="anchor-link" href="#Convert-data-types-and-reduce-memory-usage">&#182;</a></h2><p>When working with large datasets, efficiency and speed start to become areas you need to pay closer attention to.  Dealing with data that is flirting with the limits of your machine's memory comes with its challenges.  One way to view the biggest memory hogs is to use <strong>.memory_usage(deep=True)</strong>.  This method returns the memory usage of each column in bytes.  Now this DataFrame is by no means considered large, but here you can see that the <em>'description'</em> and <em>'title'</em> columns are taking up a lot of space.  This makes sense because they are storing words/sentences.  You may determine that wine descriptions are not useful in your analysis and choose to remove the column using the <strong>.drop()</strong> method and passing in the <em>column</em> parameter.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">og_wine_mem</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">og_wine_mem</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index                         128
+country                   7989711
+description              42352034
+designation               8149866
+points                    1039768
+price                     1039768
+province                  8774807
+region_1                  8576597
+region_2                  5993056
+taster_name               8626854
+taster_twitter_handle     7909446
+title                    15076889
+variety                   9176985
+winery                    9382168
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;description&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another option to free up some memory is to look at the column data types and see if there are any opportunities to convert them to a more appropriate/efficient type.  A great example is finding columns that could be a great candidate to be converted to the <strong>category</strong> dtype.  When looking for potential columns to convert to categories it is best to find columns that contain a low volume of unique values.  You can do this by calling the <strong>.nunique()</strong> method, which returns the count of unique values for each column.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>country                      43
+designation               37979
+points                       21
+price                       390
+province                    425
+region_1                   1229
+region_2                     17
+taster_name                  19
+taster_twitter_handle        15
+title                    118840
+variety                     707
+winery                    16757
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Whenever you want/need to change a columns type, you can use the <em>.astype()</em> method and pass in a type name ('int','float','category' etc.).  In this example, I converted the <em>'country'</em> column to a <em>'category'</em> dtype.  I then called the <strong>.dtypes</strong> attribute to confirm that the change was a success.  Using the <strong>.memory_usage(deep=True)</strong> again we can see that the <em>'country'</em> column is taking up much less space compared to before and we also got rid of the bytes originally used by the <em>'description'</em> column after dropping it.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wine</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">wine</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[14]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>country                  category
+designation                object
+points                      int64
+price                     float64
+province                   object
+region_1                   object
+region_2                   object
+taster_name                object
+taster_twitter_handle      object
+title                      object
+variety                    object
+winery                     object
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_wine_mem</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">new_wine_mem</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index                         128
+country                    133814
+designation               8388072
+points                    1039768
+price                     1039768
+province                  8818570
+region_1                  8746171
+region_2                  5993056
+taster_name               8865600
+taster_twitter_handle     8033362
+title                    17003165
+variety                   9314902
+winery                    9674954
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 129971 entries, 0 to 129970
+Data columns (total 12 columns):
+ #   Column                 Non-Null Count   Dtype   
+---  ------                 --------------   -----   
+ 0   country                129908 non-null  category
+ 1   designation            92506 non-null   object  
+ 2   points                 129971 non-null  int64   
+ 3   price                  120975 non-null  float64 
+ 4   province               129908 non-null  object  
+ 5   region_1               108724 non-null  object  
+ 6   region_2               50511 non-null   object  
+ 7   taster_name            103727 non-null  object  
+ 8   taster_twitter_handle  98758 non-null   object  
+ 9   title                  129971 non-null  object  
+ 10  variety                129970 non-null  object  
+ 11  winery                 129971 non-null  object  
+dtypes: category(1), float64(1), int64(1), object(9)
+memory usage: 11.0+ MB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>Understanding the dtypes a DataFrame is made up of is an important initial step when you're getting to know your data.  In this post, we explored how to use the <strong>.dtype</strong> attribute to see a list of a DataFrame's columns along with their Dtype.  We then learned how to subset out columns based on their dtype by using the <strong>.select_dtype()</strong> method.  This allowed us to separate out the columns made up of numbers vs. non-number dtypes.  We then took a look at how to convert dtypes by calling the <strong>.astype()</strong> method on a column.  I showed how to convert a column made up of a lower volume of unique values to the <em>'category'</em> dtype, which resulted in a more optimized DataFrame memory usage.  Thats all for this basic Pandas dtype overview.</p>
+<p>Thanks for reading!</p>
+
+</div>
+</div>
+</div>
+ 
+
+</body>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>
+  &copy;  2016 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+           src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " MJData ",
+  "url" : ".",
+  "image": "",
+  "description": "Exploring Data With Python"
+}
+</script>
+
+</body>
+</html>
