@@ -215,19 +215,8 @@ Adding strings &#34;cat&#34; + &#34;dog&#34; = catdog
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
 
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../datasets/wine_reviews/winemag-data-130k-v2.csv&#39;</span><span class="p">)</span>
+<span class="n">wine</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../datasets/wine_reviews/winemag-data-130k-v2.csv&#39;</span><span class="p">)</span>
 <span class="n">wine</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -241,7 +230,7 @@ Adding strings &#34;cat&#34; + &#34;dog&#34; = catdog
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -374,14 +363,14 @@ Adding strings &#34;cat&#34; + &#34;dog&#34; = catdog
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-Data-types-in-your-DataFrame">Finding Data types in your DataFrame<a class="anchor-link" href="#Finding-Data-types-in-your-DataFrame">&#182;</a></h2><p>Once the data is read into a DataFrame, there are two options to view each column's data type.  The first is calling <strong>.dtypes</strong> on your DataFrame object.  This returns a list of column names with the corresponding data type next to it.  You can chain together <strong>.dtypes.values_counts() to see how many columns each data type has.  The second option to view data types is calling </strong>.info()**.  This option shows both the column data types and data type column counts as well as some valuable details on index info, Non-Null Count, and memory usage.</p>
+<h2 id="Finding-Data-types-in-your-DataFrame">Finding Data types in your DataFrame<a class="anchor-link" href="#Finding-Data-types-in-your-DataFrame">&#182;</a></h2><p>Once the data is read into a DataFrame, there are two options to view each column's data type.  The first is calling <strong>.dtypes</strong> on your DataFrame object.  This returns a list of column names with the corresponding data type next to it.  You can chain together <strong>.dtypes.values_counts()</strong> to see how many columns each data type has.  The second option to view data types is calling <strong>.info()</strong>.  This option shows both the column data types and data type column counts as well as some valuable details on index info, Non-Null Count, and memory usage.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">dtypes</span>
@@ -397,7 +386,7 @@ Adding strings &#34;cat&#34; + &#34;dog&#34; = catdog
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -427,7 +416,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -443,15 +432,15 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>object     11
-int64       1
 float64     1
+int64       1
 dtype: int64</pre>
 </div>
 
@@ -463,7 +452,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -531,7 +520,7 @@ memory usage: 12.9+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_cols</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
@@ -544,7 +533,7 @@ memory usage: 12.9+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_cols</span>
@@ -560,7 +549,7 @@ memory usage: 12.9+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -577,7 +566,7 @@ memory usage: 12.9+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">txt_cols</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
@@ -590,7 +579,7 @@ memory usage: 12.9+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">txt_cols</span>
@@ -606,7 +595,7 @@ memory usage: 12.9+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -634,14 +623,14 @@ memory usage: 12.9+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Convert-data-types-and-reduce-memory-usage">Convert data types and reduce memory usage<a class="anchor-link" href="#Convert-data-types-and-reduce-memory-usage">&#182;</a></h2><p>When working with large datasets, efficiency and speed start to become areas you need to pay closer attention to.  Dealing with data that is flirting with the limits of your machine's memory comes with its challenges.  One way to view the biggest memory hogs is to use <strong>.memory_usage(deep=True)</strong>.  This method returns the memory usage of each column in bytes.  Now this DataFrame is by no means considered large, but here you can see that the <em>'description'</em> and <em>'title'</em> columns are taking up a lot of space.  This makes sense because they are storing words/sentences.  You may determine that wine descriptions are not useful in your analysis and choose to remove the column using the <strong>.drop()</strong> method and passing in the <em>column</em> parameter.</p>
+<h2 id="Convert-data-types-and-reduce-memory-usage">Convert data types and reduce memory usage<a class="anchor-link" href="#Convert-data-types-and-reduce-memory-usage">&#182;</a></h2><p>When working with large datasets, efficiency and speed start to become areas you need to pay closer attention to.  Dealing with data that is flirting with the limits of your machine's memory comes with its challenges.  One way to view the biggest memory hogs is to use <strong>.memory_usage(</strong><em>deep=True</em><strong>)</strong>.  This method returns the memory usage of each column in bytes.  Now this DataFrame is by no means considered large, but here you can see that the <em>'description'</em> and <em>'title'</em> columns are taking up a lot of space.  This makes sense because they are storing words/sentences.  You may determine that wine descriptions are not useful in your analysis and choose to remove the column using the <strong>.drop()</strong> method and passing in the <em>column</em> parameter.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">og_wine_mem</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -658,7 +647,7 @@ memory usage: 12.9+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -689,7 +678,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;description&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -710,7 +699,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
@@ -726,7 +715,7 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -756,14 +745,14 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Whenever you want/need to change a columns type, you can use the <em>.astype()</em> method and pass in a type name ('int','float','category' etc.).  In this example, I converted the <em>'country'</em> column to a <em>'category'</em> dtype.  I then called the <strong>.dtypes</strong> attribute to confirm that the change was a success.  Using the <strong>.memory_usage(deep=True)</strong> again we can see that the <em>'country'</em> column is taking up much less space compared to before and we also got rid of the bytes originally used by the <em>'description'</em> column after dropping it.</p>
+<p>Whenever you want/need to change a columns type, you can use the <em>.astype()</em> method and pass in a type name ('int','float','category' etc.).  In this example, I converted the <em>'country'</em> column to a <em>'category'</em> dtype.  I then called the <strong>.dtypes</strong> attribute to confirm that the change was a success.  Using the <strong>.memory_usage(</strong><em>deep=True</em><strong>)</strong> again we can see that the <em>'country'</em> column is taking up much less space compared to before and we also got rid of the bytes originally used by the <em>'description'</em> column after dropping it.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wine</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
@@ -780,7 +769,7 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -809,7 +798,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_wine_mem</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -826,7 +815,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -856,7 +845,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wine</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
